@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mehta & Associates | Chartered Accountants, New Delhi</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root {
+  --navy: #0A1628;
+  --navy2: #112240;
+  --navy3: #1C3461;
+  --gold: #C9A84C;
+  --gold2: #E8C96A;
+  --gold-pale: #F5EDD3;
+  --cream: #FAF7F0;
+  --white: #FFFFFF;
+  --text: #1A2540;
+  --muted: #6B7C9E;
+  --border: #E2E8F0;
+  --success: #0F7B4A;
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'Outfit', sans-serif;
+  --r: 12px;
+  --rl: 20px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); color: var(--text); background: var(--cream); overflow-x: hidden; }
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--cream); }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 99px; }
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 6%;
+  height: 72px;
+  background: rgba(10, 22, 40, 0.97);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(201,168,76,0.15);
+  transition: all 0.3s;
+}
+nav.light {
+  background: rgba(250,247,240,0.97);
+  border-bottom-color: var(--border);
+}
+.nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.nav-logo-icon {
+  width: 36px; height: 36px;
+  background: var(--gold);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 700; font-size: 1rem;
+  color: var(--navy);
+}
+.nav-logo-text { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; color: var(--white); }
+nav.light .nav-logo-text { color: var(--navy); }
+.nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+.nav-links a { font-size: 0.85rem; font-weight: 400; color: rgba(255,255,255,0.75); text-decoration: none; transition: color 0.2s; letter-spacing: 0.03em; }
+nav.light .nav-links a { color: var(--muted); }
+.nav-links a:hover, nav.light .nav-links a:hover { color: var(--gold); }
+.nav-book {
+  background: var(--gold); color: var(--navy);
+  padding: 9px 22px; border-radius: 50px;
+  font-size: 0.82rem; font-weight: 600;
+  text-decoration: none; transition: all 0.2s;
+  letter-spacing: 0.03em;
+}
+.nav-book:hover { background: var(--gold2); transform: translateY(-1px); }
+.hamburger { display: none; background: none; border: none; cursor: pointer; }
+.hamburger span { display: block; width: 22px; height: 1.5px; background: var(--white); margin: 5px 0; transition: 0.3s; }
+
+/* ── HERO ── */
+#hero {
+  min-height: 100vh;
+  background: var(--navy);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 100px 6% 60px;
+  position: relative;
+  overflow: hidden;
+}
+.hero-bg-lines {
+  position: absolute; inset: 0; z-index: 0;
+  background-image:
+    linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+.hero-glow {
+  position: absolute; top: -200px; right: -100px;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 65%);
+  z-index: 0;
+}
+.hero-content { position: relative; z-index: 1; }
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  border: 1px solid rgba(201,168,76,0.35);
+  color: var(--gold);
+  font-size: 0.72rem; font-weight: 500;
+  padding: 6px 14px; border-radius: 50px;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  margin-bottom: 1.75rem;
+}
+.hero-eyebrow::before { content: ''; width: 5px; height: 5px; background: var(--gold); border-radius: 50%; }
+h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 4.5vw, 4rem);
+  font-weight: 500;
+  color: var(--white);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.25rem;
+}
+h1 em { color: var(--gold); font-style: italic; }
+.hero-sub {
+  font-size: 1rem; color: rgba(255,255,255,0.5);
+  font-weight: 300; line-height: 1.75;
+  max-width: 460px; margin-bottom: 2.5rem;
+}
+.hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
+.btn-gold {
+  background: var(--gold); color: var(--navy);
+  padding: 14px 30px; border-radius: 50px;
+  font-size: 0.9rem; font-weight: 600;
+  text-decoration: none; border: none; cursor: pointer;
+  transition: all 0.25s; display: inline-flex; align-items: center; gap: 8px;
+  letter-spacing: 0.02em;
+}
+.btn-gold:hover { background: var(--gold2); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(201,168,76,0.3); }
+.btn-ghost {
+  background: transparent; color: rgba(255,255,255,0.8);
+  padding: 14px 30px; border-radius: 50px;
+  font-size: 0.9rem; font-weight: 400;
+  text-decoration: none; border: 1px solid rgba(255,255,255,0.2); cursor: pointer;
+  transition: all 0.25s; display: inline-flex; align-items: center; gap: 8px;
+}
+.btn-ghost:hover { border-color: rgba(255,255,255,0.5); color: var(--white); }
+.hero-trust { display: flex; gap: 2.5rem; }
+.trust-item {}
+.trust-num { font-family: var(--font-display); font-size: 2.2rem; font-weight: 500; color: var(--gold); line-height: 1; }
+.trust-label { font-size: 0.78rem; color: rgba(255,255,255,0.4); margin-top: 3px; }
+
+/* hero visual */
+.hero-visual { position: relative; z-index: 1; display: flex; justify-content: center; }
+.hero-card-stack { position: relative; width: 380px; height: 480px; }
+.hero-card {
+  position: absolute;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(201,168,76,0.2);
+  border-radius: var(--rl);
+  padding: 1.75rem;
+  backdrop-filter: blur(10px);
+}
+.hc-main { width: 340px; top: 40px; left: 0; background: rgba(28,52,97,0.6); border-color: rgba(201,168,76,0.3); }
+.hc-float1 {
+  width: 200px; bottom: 30px; right: -20px;
+  background: var(--navy2); border-color: rgba(201,168,76,0.25);
+  animation: hfloat 5s ease-in-out infinite;
+}
+.hc-float2 {
+  width: 170px; top: 10px; right: 10px;
+  background: rgba(15,123,74,0.15); border-color: rgba(15,123,74,0.4);
+  animation: hfloat 5s ease-in-out infinite 2.5s;
+}
+@keyframes hfloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+.hc-label { font-size: 0.7rem; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.75rem; font-weight: 500; }
+.hc-title { font-family: var(--font-display); font-size: 1.15rem; color: var(--white); margin-bottom: 0.5rem; }
+.hc-sub { font-size: 0.8rem; color: rgba(255,255,255,0.45); }
+.hc-row { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+.hc-stat { font-family: var(--font-display); font-size: 1.4rem; color: var(--gold); font-weight: 500; }
+.hc-stat-l { font-size: 0.72rem; color: rgba(255,255,255,0.4); }
+.hc-pill { background: rgba(15,123,74,0.2); color: #4ADE80; font-size: 0.72rem; padding: 3px 10px; border-radius: 99px; display: inline-flex; align-items: center; gap: 4px; }
+
+/* ── SECTION COMMONS ── */
+section { padding: 90px 6%; }
+.lbl { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+.sec-title { font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 500; color: var(--navy); line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 0.85rem; }
+.sec-title em { font-style: italic; color: var(--gold); }
+.sec-sub { font-size: 0.95rem; color: var(--muted); font-weight: 300; line-height: 1.75; max-width: 520px; }
+.sec-hdr { margin-bottom: 3.5rem; }
+.sec-hdr.ctr { text-align: center; }
+.sec-hdr.ctr .sec-sub { margin: 0 auto; }
+
+/* ── SERVICES ── */
+#services { background: var(--white); }
+.svc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
+.svc-card {
+  border: 1px solid var(--border);
+  border-radius: var(--rl);
+  padding: 2rem;
+  background: var(--white);
+  transition: all 0.3s; cursor: pointer;
+  position: relative; overflow: hidden;
+}
+.svc-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--gold2));
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.35s;
+}
+.svc-card:hover { transform: translateY(-5px); box-shadow: 0 20px 50px rgba(10,22,40,0.08); border-color: var(--gold); }
+.svc-card:hover::before { transform: scaleX(1); }
+.svc-icon {
+  width: 48px; height: 48px;
+  background: var(--gold-pale);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 1.25rem;
+}
+.svc-icon i { color: var(--gold); font-size: 1.15rem; }
+.svc-name { font-family: var(--font-display); font-size: 1.15rem; font-weight: 500; color: var(--navy); margin-bottom: 0.5rem; }
+.svc-desc { font-size: 0.85rem; color: var(--muted); font-weight: 300; line-height: 1.7; margin-bottom: 1.25rem; }
+.svc-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+.svc-tag { background: var(--cream); color: var(--muted); font-size: 0.72rem; padding: 3px 10px; border-radius: 99px; border: 1px solid var(--border); }
+
+/* ── TAX DEADLINES ── */
+#deadlines { background: var(--navy); }
+#deadlines .sec-title { color: var(--white); }
+#deadlines .sec-sub { color: rgba(255,255,255,0.45); }
+.deadline-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
+.dl-card {
+  border: 1px solid rgba(201,168,76,0.2);
+  border-radius: var(--r);
+  padding: 1.5rem;
+  background: rgba(255,255,255,0.03);
+  transition: all 0.3s;
+}
+.dl-card:hover { border-color: var(--gold); background: rgba(201,168,76,0.05); }
+.dl-month { font-size: 0.72rem; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; margin-bottom: 6px; }
+.dl-task { font-size: 0.95rem; font-weight: 500; color: var(--white); margin-bottom: 4px; }
+.dl-date { font-size: 0.82rem; color: rgba(255,255,255,0.4); }
+.dl-badge {
+  display: inline-block; font-size: 0.7rem; font-weight: 500;
+  padding: 2px 8px; border-radius: 99px; margin-top: 8px;
+}
+.dl-urgent { background: rgba(239,68,68,0.15); color: #F87171; }
+.dl-soon { background: rgba(234,179,8,0.15); color: #FCD34D; }
+.dl-ok { background: rgba(74,222,128,0.15); color: #4ADE80; }
+
+/* ── DOCUMENT PORTAL ── */
+#portal { background: var(--cream); }
+.portal-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 5rem; align-items: center;
+}
+.portal-visual {
+  background: var(--navy2);
+  border-radius: var(--rl);
+  padding: 2rem;
+  border: 1px solid rgba(201,168,76,0.2);
+  position: relative; overflow: hidden;
+}
+.portal-visual::after {
+  content: '';
+  position: absolute; bottom: -80px; right: -80px;
+  width: 250px; height: 250px;
+  background: radial-gradient(circle, rgba(201,168,76,0.1), transparent 65%);
+}
+.portal-header { display: flex; align-items: center; gap: 10px; margin-bottom: 1.5rem; }
+.portal-dots { display: flex; gap: 6px; }
+.portal-dots span { width: 10px; height: 10px; border-radius: 50%; }
+.portal-title-bar { font-size: 0.78rem; color: rgba(255,255,255,0.4); margin-left: auto; }
+.file-row {
+  display: flex; align-items: center; gap: 12px;
+  padding: 10px 14px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 8px; margin-bottom: 8px;
+  transition: all 0.2s; cursor: pointer;
+}
+.file-row:hover { background: rgba(201,168,76,0.08); border-color: rgba(201,168,76,0.2); }
+.file-icon { width: 32px; height: 32px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; flex-shrink: 0; }
+.fi-pdf { background: rgba(239,68,68,0.15); color: #F87171; }
+.fi-xls { background: rgba(74,222,128,0.12); color: #4ADE80; }
+.fi-doc { background: rgba(96,165,250,0.12); color: #60A5FA; }
+.file-name { font-size: 0.82rem; color: rgba(255,255,255,0.8); font-weight: 400; flex: 1; }
+.file-date { font-size: 0.72rem; color: rgba(255,255,255,0.3); }
+.file-status { font-size: 0.68rem; font-weight: 500; padding: 2px 8px; border-radius: 99px; }
+.fs-done { background: rgba(74,222,128,0.12); color: #4ADE80; }
+.fs-pending { background: rgba(234,179,8,0.12); color: #FCD34D; }
+.upload-zone {
+  margin-top: 1rem; border: 1.5px dashed rgba(201,168,76,0.35);
+  border-radius: 10px; padding: 1.25rem;
+  text-align: center; color: rgba(255,255,255,0.35);
+  font-size: 0.8rem; cursor: pointer; transition: all 0.2s;
+}
+.upload-zone:hover { border-color: var(--gold); color: var(--gold); background: rgba(201,168,76,0.04); }
+.upload-zone i { font-size: 1.5rem; display: block; margin-bottom: 6px; }
+.portal-info { }
+.portal-feature {
+  display: flex; align-items: flex-start; gap: 14px;
+  margin-bottom: 1.75rem;
+}
+.pf-icon {
+  width: 40px; height: 40px; min-width: 40px;
+  background: var(--gold-pale); border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+}
+.pf-icon i { color: var(--gold); font-size: 1rem; }
+.pf-title { font-weight: 500; font-size: 0.95rem; color: var(--navy); margin-bottom: 2px; }
+.pf-desc { font-size: 0.83rem; color: var(--muted); font-weight: 300; line-height: 1.6; }
+
+/* ── BOOKING ── */
+#booking { background: var(--white); }
+.booking-wrap { display: grid; grid-template-columns: 1.1fr 1fr; gap: 5rem; align-items: start; }
+.bk-form {
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: var(--rl);
+  padding: 2.5rem;
+}
+.bk-form-title { font-family: var(--font-display); font-size: 1.4rem; font-weight: 500; color: var(--navy); margin-bottom: 0.25rem; }
+.bk-form-sub { font-size: 0.85rem; color: var(--muted); margin-bottom: 2rem; font-weight: 300; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.fg { margin-bottom: 1.15rem; }
+.fg label { display: block; font-size: 0.78rem; font-weight: 500; color: var(--text); margin-bottom: 5px; letter-spacing: 0.03em; }
+.fg input, .fg select, .fg textarea {
+  width: 100%; padding: 11px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  font-family: var(--font-body); font-size: 0.88rem; color: var(--text);
+  background: var(--white); outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+}
+.fg input:focus, .fg select:focus, .fg textarea:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(201,168,76,0.12);
+}
+.fg textarea { resize: vertical; min-height: 80px; }
+.form-note { font-size: 0.78rem; color: var(--muted); margin-bottom: 1.25rem; display: flex; align-items: center; gap: 6px; }
+.form-success { display: none; text-align: center; padding: 2.5rem 1rem; }
+.form-success i { font-size: 3rem; color: var(--success); margin-bottom: 1rem; }
+.form-success h3 { font-family: var(--font-display); font-size: 1.5rem; color: var(--navy); margin-bottom: 0.5rem; }
+.form-success p { font-size: 0.88rem; color: var(--muted); }
+
+/* booking info */
+.bk-info {}
+.bk-why { margin-bottom: 2.5rem; }
+.bk-why-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 1.25rem; }
+.bk-num { width: 28px; height: 28px; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 600; color: var(--navy); flex-shrink: 0; }
+.bk-wi-title { font-weight: 500; font-size: 0.9rem; color: var(--navy); margin-bottom: 2px; }
+.bk-wi-desc { font-size: 0.82rem; color: var(--muted); font-weight: 300; line-height: 1.6; }
+.bk-contact { background: var(--navy); border-radius: var(--r); padding: 1.5rem; }
+.bk-contact-item { display: flex; align-items: center; gap: 12px; margin-bottom: 1rem; }
+.bk-contact-item:last-child { margin-bottom: 0; }
+.bk-c-icon { width: 34px; height: 34px; background: rgba(201,168,76,0.15); border-radius: 6px; display: flex; align-items: center; justify-content: center; }
+.bk-c-icon i { color: var(--gold); font-size: 0.9rem; }
+.bk-c-label { font-size: 0.72rem; color: rgba(255,255,255,0.4); }
+.bk-c-val { font-size: 0.88rem; color: var(--white); font-weight: 500; }
+
+/* ── TEAM ── */
+#team { background: var(--cream); }
+.team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+.team-card {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: var(--rl); overflow: hidden; transition: all 0.3s;
+}
+.team-card:hover { transform: translateY(-5px); box-shadow: 0 20px 50px rgba(10,22,40,0.08); }
+.team-img {
+  height: 200px;
+  background: linear-gradient(135deg, var(--navy2), var(--navy3));
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+}
+.team-initials {
+  font-family: var(--font-display);
+  font-size: 3.5rem; font-weight: 500;
+  color: rgba(201,168,76,0.4);
+}
+.team-body { padding: 1.5rem; }
+.team-name { font-family: var(--font-display); font-size: 1.15rem; font-weight: 500; color: var(--navy); margin-bottom: 2px; }
+.team-role { font-size: 0.78rem; color: var(--gold); font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.75rem; }
+.team-desc { font-size: 0.83rem; color: var(--muted); font-weight: 300; line-height: 1.65; margin-bottom: 1rem; }
+.team-creds { display: flex; gap: 6px; flex-wrap: wrap; }
+.cred { background: var(--gold-pale); color: #7A5C1E; font-size: 0.7rem; font-weight: 500; padding: 3px 9px; border-radius: 99px; }
+
+/* ── TESTIMONIALS ── */
+#testimonials { background: var(--white); }
+.testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
+.testi-card {
+  background: var(--cream); border: 1px solid var(--border);
+  border-radius: var(--rl); padding: 2rem; transition: all 0.3s;
+}
+.testi-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(10,22,40,0.07); }
+.testi-stars { color: var(--gold); font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 1rem; }
+.testi-q { font-family: var(--font-display); font-size: 0.95rem; font-style: italic; color: var(--text); line-height: 1.8; margin-bottom: 1.25rem; }
+.testi-author { display: flex; align-items: center; gap: 10px; }
+.testi-av { width: 36px; height: 36px; background: var(--navy); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 0.85rem; color: var(--gold); font-weight: 500; }
+.testi-name { font-weight: 500; font-size: 0.88rem; color: var(--navy); }
+.testi-type { font-size: 0.75rem; color: var(--muted); }
+
+/* ── FAQ ── */
+#faq { background: var(--cream); }
+.faq-wrap { max-width: 720px; margin: 0 auto; }
+.faq-item { border: 1px solid var(--border); border-radius: var(--r); margin-bottom: 8px; overflow: hidden; background: var(--white); transition: box-shadow 0.2s; }
+.faq-item.open { box-shadow: 0 8px 30px rgba(10,22,40,0.06); border-color: var(--gold); }
+.faq-q { display: flex; justify-content: space-between; align-items: center; padding: 1.1rem 1.5rem; cursor: pointer; font-weight: 500; font-size: 0.92rem; color: var(--navy); user-select: none; gap: 1rem; transition: background 0.2s; }
+.faq-q:hover { background: var(--gold-pale); }
+.faq-ico { color: var(--gold); font-size: 0.8rem; transition: transform 0.3s; min-width: 14px; }
+.faq-item.open .faq-ico { transform: rotate(45deg); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.3s; font-size: 0.88rem; color: var(--muted); font-weight: 300; line-height: 1.75; padding: 0 1.5rem; }
+.faq-item.open .faq-a { max-height: 200px; padding: 0 1.5rem 1.25rem; }
+
+/* ── CONTACT ── */
+#contact { background: var(--navy); }
+#contact .sec-title { color: var(--white); }
+#contact .sec-sub { color: rgba(255,255,255,0.45); }
+.contact-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 4rem; align-items: start; }
+.contact-info-item { display: flex; gap: 14px; margin-bottom: 1.75rem; }
+.ci-ico { width: 42px; height: 42px; min-width: 42px; background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.2); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+.ci-ico i { color: var(--gold); font-size: 1rem; }
+.ci-lbl { font-size: 0.72rem; color: rgba(255,255,255,0.35); margin-bottom: 2px; letter-spacing: 0.05em; }
+.ci-val { font-size: 0.9rem; color: rgba(255,255,255,0.85); font-weight: 400; }
+.wa-btn { display: inline-flex; align-items: center; gap: 8px; background: #25D366; color: var(--white); padding: 11px 22px; border-radius: 50px; font-size: 0.88rem; font-weight: 500; text-decoration: none; transition: all 0.2s; margin-top: 0.5rem; }
+.wa-btn:hover { background: #1EBE5A; transform: translateY(-1px); }
+.hours-table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+.hours-table td { padding: 9px 0; font-size: 0.85rem; border-bottom: 1px solid rgba(255,255,255,0.07); }
+.hours-table td:first-child { color: rgba(255,255,255,0.4); }
+.hours-table td:last-child { color: rgba(255,255,255,0.8); font-weight: 500; text-align: right; }
+.map-placeholder { background: rgba(255,255,255,0.03); border: 1px solid rgba(201,168,76,0.15); border-radius: var(--rl); height: 320px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; color: rgba(255,255,255,0.3); }
+.map-placeholder i { font-size: 2.5rem; color: rgba(201,168,76,0.3); }
+.map-placeholder p { font-size: 0.82rem; }
+
+/* ── FOOTER ── */
+footer { background: #050F1E; padding: 50px 6% 24px; }
+.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+.footer-logo { display: flex; align-items: center; gap: 8px; margin-bottom: 0.75rem; }
+.footer-logo-icon { width: 30px; height: 30px; background: var(--gold); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 0.85rem; font-weight: 700; color: var(--navy); }
+.footer-logo-text { font-family: var(--font-display); font-size: 1rem; color: var(--white); }
+.footer-tagline { font-size: 0.82rem; color: rgba(255,255,255,0.3); line-height: 1.65; max-width: 220px; font-weight: 300; }
+.footer-emergency { display: inline-flex; align-items: center; gap: 7px; background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.25); color: var(--gold); padding: 8px 16px; border-radius: 50px; font-size: 0.78rem; font-weight: 500; text-decoration: none; margin-top: 1.25rem; transition: all 0.2s; }
+.footer-emergency:hover { background: rgba(201,168,76,0.2); }
+.fc-title { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.3); font-weight: 500; margin-bottom: 1rem; }
+.footer-links { list-style: none; }
+.footer-links li { margin-bottom: 0.5rem; }
+.footer-links a { font-size: 0.85rem; color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--gold); }
+.social-row { display: flex; gap: 8px; margin-top: 0.5rem; }
+.soc { width: 32px; height: 32px; background: rgba(255,255,255,0.05); border-radius: 6px; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.82rem; transition: all 0.2s; }
+.soc:hover { background: var(--gold); color: var(--navy); }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 1.25rem; display: flex; justify-content: space-between; font-size: 0.78rem; color: rgba(255,255,255,0.2); flex-wrap: wrap; gap: 0.5rem; }
+.footer-bottom a { color: var(--gold); text-decoration: none; }
+
+/* ── REVEAL ── */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.rd1 { transition-delay: 0.1s; }
+.rd2 { transition-delay: 0.2s; }
+.rd3 { transition-delay: 0.3s; }
+
+/* ── MOBILE ── */
+@media (max-width: 900px) {
+  #hero { grid-template-columns: 1fr; text-align: center; }
+  .hero-sub, .hero-btns, .hero-trust { margin-left: auto; margin-right: auto; }
+  .hero-btns { justify-content: center; }
+  .hero-trust { justify-content: center; }
+  .hero-visual { display: none; }
+  .portal-wrap, .booking-wrap, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+  .hamburger { display: block; }
+}
+@media (max-width: 600px) {
+  section { padding: 60px 5%; }
+  .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-icon">M&A</div>
+    <span class="nav-logo-text">Mehta & Associates</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#deadlines">Tax Calendar</a></li>
+    <li><a href="#portal">Client Portal</a></li>
+    <li><a href="#team">Our Team</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <a href="#booking" class="nav-book">Book Consultation</a>
+  <button class="hamburger" onclick="toggleNav()" aria-label="menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="hero-bg-lines"></div>
+  <div class="hero-glow"></div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">ICAI Registered &nbsp;·&nbsp; Est. 2004 &nbsp;·&nbsp; New Delhi</div>
+    <h1>Trusted CAs for<br>Every Financial<br><em>Challenge</em></h1>
+    <p class="hero-sub">From GST filings and ITR to corporate audits and startup advisory — Mehta & Associates brings 20 years of precision and integrity to every engagement.</p>
+    <div class="hero-btns">
+      <a href="#booking" class="btn-gold"><i class="fas fa-calendar-check"></i> Book Free Consultation</a>
+      <a href="#portal" class="btn-ghost"><i class="fas fa-folder-open"></i> Client Portal</a>
+    </div>
+    <div class="hero-trust">
+      <div class="trust-item"><div class="trust-num">20+</div><div class="trust-label">Years of Practice</div></div>
+      <div class="trust-item"><div class="trust-num">1,400+</div><div class="trust-label">Clients Served</div></div>
+      <div class="trust-item"><div class="trust-num">₹0</div><div class="trust-label">Penalty Record</div></div>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="hero-card-stack">
+      <div class="hero-card hc-main">
+        <div class="hc-label">FY 2024–25 Tax Summary</div>
+        <div class="hc-title">Rajesh Kumar Enterprises</div>
+        <div class="hc-sub">GST + ITR Filing · In Progress</div>
+        <div class="hc-row">
+          <div><div class="hc-stat">₹4.2L</div><div class="hc-stat-l">Tax Saved</div></div>
+          <div><div class="hc-stat">98%</div><div class="hc-stat-l">Compliance</div></div>
+          <div><span class="hc-pill"><i class="fas fa-circle" style="font-size:5px"></i> On Track</span></div>
+        </div>
+      </div>
+      <div class="hero-card hc-float1">
+        <div class="hc-label">Next Deadline</div>
+        <div class="hc-title" style="font-size:1rem">GST Return</div>
+        <div class="hc-sub">GSTR-3B · July 20</div>
+      </div>
+      <div class="hero-card hc-float2">
+        <div class="hc-label">Documents</div>
+        <div style="font-size:1.5rem;color:#4ADE80;font-weight:500">12 / 15</div>
+        <div class="hc-sub" style="font-size:0.72rem">Uploaded</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SERVICES ── -->
+<section id="services">
+  <div class="sec-hdr">
+    <div class="lbl">What We Do</div>
+    <h2 class="sec-title">Complete Financial &amp; <em>Tax Services</em></h2>
+    <p class="sec-sub">End-to-end accounting, compliance, and advisory — so you can focus on growing your business while we manage your finances.</p>
+  </div>
+  <div class="svc-grid">
+    <div class="svc-card reveal">
+      <div class="svc-icon"><i class="fas fa-file-invoice"></i></div>
+      <div class="svc-name">Income Tax Filing</div>
+      <p class="svc-desc">Accurate ITR filing for individuals, HUFs, and corporates. Maximum deductions claimed, zero penalties guaranteed.</p>
+      <div class="svc-tags"><span class="svc-tag">ITR-1 to ITR-7</span><span class="svc-tag">Advance Tax</span><span class="svc-tag">Tax Planning</span></div>
+    </div>
+    <div class="svc-card reveal rd1">
+      <div class="svc-icon"><i class="fas fa-percentage"></i></div>
+      <div class="svc-name">GST Registration &amp; Filing</div>
+      <p class="svc-desc">GST registration, monthly/quarterly returns, annual returns, reconciliation, and notice handling — fully managed.</p>
+      <div class="svc-tags"><span class="svc-tag">GSTR-1/3B</span><span class="svc-tag">Annual Return</span><span class="svc-tag">E-invoicing</span></div>
+    </div>
+    <div class="svc-card reveal rd2">
+      <div class="svc-icon"><i class="fas fa-building"></i></div>
+      <div class="svc-name">Company Registration</div>
+      <p class="svc-desc">Private Ltd, LLP, OPC, Partnership — complete incorporation with MCA filings, PAN, TAN, and post-incorporation compliance.</p>
+      <div class="svc-tags"><span class="svc-tag">Pvt Ltd</span><span class="svc-tag">LLP</span><span class="svc-tag">OPC</span><span class="svc-tag">MCA Filing</span></div>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-icon"><i class="fas fa-search-dollar"></i></div>
+      <div class="svc-name">Audit &amp; Assurance</div>
+      <p class="svc-desc">Statutory, tax, internal and concurrent audits conducted with independence and rigor, meeting all regulatory requirements.</p>
+      <div class="svc-tags"><span class="svc-tag">Statutory Audit</span><span class="svc-tag">Tax Audit</span><span class="svc-tag">Internal Audit</span></div>
+    </div>
+    <div class="svc-card reveal rd1">
+      <div class="svc-icon"><i class="fas fa-hand-holding-usd"></i></div>
+      <div class="svc-name">Payroll &amp; TDS Management</div>
+      <p class="svc-desc">Monthly payroll processing, TDS calculation, Form 16 issuance, quarterly TDS returns, and employee tax declarations.</p>
+      <div class="svc-tags"><span class="svc-tag">Form 16/16A</span><span class="svc-tag">24Q/26Q</span><span class="svc-tag">Salary Structuring</span></div>
+    </div>
+    <div class="svc-card reveal rd2">
+      <div class="svc-icon"><i class="fas fa-rocket"></i></div>
+      <div class="svc-name">Startup &amp; MSME Advisory</div>
+      <p class="svc-desc">Startup India registration, MSME Udyam, investor-ready financials, pitch deck support, and funding compliance.</p>
+      <div class="svc-tags"><span class="svc-tag">Startup India</span><span class="svc-tag">MSME Udyam</span><span class="svc-tag">Due Diligence</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── DEADLINES ── -->
+<section id="deadlines">
+  <div class="sec-hdr ctr">
+    <div class="lbl">Stay Compliant</div>
+    <h2 class="sec-title" style="color:var(--white)">Tax Compliance <em>Calendar</em></h2>
+    <p class="sec-sub">Never miss a deadline. Here are the key dates for FY 2024–25 every taxpayer must know.</p>
+  </div>
+  <div class="deadline-grid">
+    <div class="dl-card reveal">
+      <div class="dl-month">July 2025</div>
+      <div class="dl-task">GSTR-3B Filing</div>
+      <div class="dl-date">Due: 20th July 2025</div>
+      <div class="dl-badge dl-urgent">Action Required</div>
+    </div>
+    <div class="dl-card reveal rd1">
+      <div class="dl-month">July 2025</div>
+      <div class="dl-task">ITR Filing (Non-Audit)</div>
+      <div class="dl-date">Due: 31st July 2025</div>
+      <div class="dl-badge dl-urgent">Upcoming</div>
+    </div>
+    <div class="dl-card reveal rd2">
+      <div class="dl-month">September 2025</div>
+      <div class="dl-task">Advance Tax – 2nd Instalment</div>
+      <div class="dl-date">Due: 15th September 2025</div>
+      <div class="dl-badge dl-soon">Plan Ahead</div>
+    </div>
+    <div class="dl-card reveal">
+      <div class="dl-month">October 2025</div>
+      <div class="dl-task">ITR Filing (Audit Cases)</div>
+      <div class="dl-date">Due: 31st October 2025</div>
+      <div class="dl-badge dl-soon">Plan Ahead</div>
+    </div>
+    <div class="dl-card reveal rd1">
+      <div class="dl-month">November 2025</div>
+      <div class="dl-task">TDS Return Q2 (26Q/24Q)</div>
+      <div class="dl-date">Due: 31st October 2025</div>
+      <div class="dl-badge dl-ok">Upcoming</div>
+    </div>
+    <div class="dl-card reveal rd2">
+      <div class="dl-month">December 2025</div>
+      <div class="dl-task">Advance Tax – 3rd Instalment</div>
+      <div class="dl-date">Due: 15th December 2025</div>
+      <div class="dl-badge dl-ok">Upcoming</div>
+    </div>
+    <div class="dl-card reveal">
+      <div class="dl-month">January 2026</div>
+      <div class="dl-task">GSTR-9 Annual Return</div>
+      <div class="dl-date">Due: 31st December 2025</div>
+      <div class="dl-badge dl-ok">Upcoming</div>
+    </div>
+    <div class="dl-card reveal rd1">
+      <div class="dl-month">March 2026</div>
+      <div class="dl-task">Advance Tax – Final Instalment</div>
+      <div class="dl-date">Due: 15th March 2026</div>
+      <div class="dl-badge dl-ok">Plan Ahead</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PORTAL ── -->
+<section id="portal">
+  <div class="portal-wrap">
+    <div class="portal-visual reveal">
+      <div class="portal-header">
+        <div class="portal-dots">
+          <span style="background:#F87171"></span>
+          <span style="background:#FCD34D"></span>
+          <span style="background:#4ADE80"></span>
+        </div>
+        <div style="flex:1;text-align:center">
+          <span style="font-size:0.75rem;color:rgba(255,255,255,0.3)">client.mehtaassociates.in/portal</span>
+        </div>
+      </div>
+      <div style="font-size:0.72rem;color:rgba(255,255,255,0.35);margin-bottom:1rem;text-transform:uppercase;letter-spacing:0.1em">My Documents — FY 2024–25</div>
+      <div class="file-row">
+        <div class="file-icon fi-pdf"><i class="fas fa-file-pdf"></i></div>
+        <div class="file-name">Form_16_2024-25.pdf</div>
+        <div class="file-date">Jun 15</div>
+        <span class="file-status fs-done">Verified</span>
+      </div>
+      <div class="file-row">
+        <div class="file-icon fi-xls"><i class="fas fa-file-excel"></i></div>
+        <div class="file-name">P&L_Statement_Q4.xlsx</div>
+        <div class="file-date">Jun 20</div>
+        <span class="file-status fs-done">Verified</span>
+      </div>
+      <div class="file-row">
+        <div class="file-icon fi-pdf"><i class="fas fa-file-pdf"></i></div>
+        <div class="file-name">26AS_AIS_Download.pdf</div>
+        <div class="file-date">Jun 22</div>
+        <span class="file-status fs-done">Verified</span>
+      </div>
+      <div class="file-row">
+        <div class="file-icon fi-doc"><i class="fas fa-file-word"></i></div>
+        <div class="file-name">Bank_Statements_FY25.pdf</div>
+        <div class="file-date">Jun 28</div>
+        <span class="file-status fs-pending">Pending Review</span>
+      </div>
+      <div class="file-row" style="opacity:0.4">
+        <div class="file-icon fi-pdf"><i class="fas fa-file-pdf"></i></div>
+        <div class="file-name">Investment_Proof.pdf</div>
+        <div class="file-date">—</div>
+        <span class="file-status" style="background:rgba(239,68,68,0.12);color:#F87171">Missing</span>
+      </div>
+      <div class="upload-zone" onclick="this.style.background='rgba(201,168,76,0.06)'">
+        <i class="fas fa-cloud-upload-alt"></i>
+        Drop files here or click to upload
+      </div>
+    </div>
+
+    <div class="portal-info reveal rd1">
+      <div class="lbl">Client Portal</div>
+      <h2 class="sec-title">Secure Document<br><em>Exchange Portal</em></h2>
+      <p class="sec-sub" style="margin-bottom:2.5rem">Your dedicated portal to upload documents, track filings, download certificates, and communicate with your CA team — anytime, from anywhere.</p>
+      <div class="portal-feature">
+        <div class="pf-icon"><i class="fas fa-lock"></i></div>
+        <div>
+          <div class="pf-title">Bank-Grade Security</div>
+          <div class="pf-desc">256-bit SSL encryption, 2FA login, and role-based access. Your financial data stays completely private.</div>
+        </div>
+      </div>
+      <div class="portal-feature">
+        <div class="pf-icon"><i class="fas fa-bell"></i></div>
+        <div>
+          <div class="pf-title">Real-Time Status Updates</div>
+          <div class="pf-desc">WhatsApp and email alerts when your return is filed, documents are verified, or action is needed from you.</div>
+        </div>
+      </div>
+      <div class="portal-feature">
+        <div class="pf-icon"><i class="fas fa-history"></i></div>
+        <div>
+          <div class="pf-title">5-Year Document Archive</div>
+          <div class="pf-desc">All past returns, audit reports, and certificates stored and searchable — never lose a document again.</div>
+        </div>
+      </div>
+      <a href="#booking" class="btn-gold" style="margin-top:0.5rem"><i class="fas fa-user-plus"></i> Get Portal Access</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── BOOKING ── -->
+<section id="booking">
+  <div class="sec-hdr">
+    <div class="lbl">Schedule a Meeting</div>
+    <h2 class="sec-title">Book Your <em>Free</em><br>Consultation</h2>
+  </div>
+  <div class="booking-wrap">
+    <div>
+      <div class="bk-form">
+        <div class="bk-form-title">Appointment Request</div>
+        <div class="bk-form-sub">First consultation is always complimentary — no obligation.</div>
+        <div id="bk-form-body">
+          <div class="form-row">
+            <div class="fg"><label>Full Name *</label><input type="text" id="bk-name" placeholder="e.g. Suresh Agarwal"></div>
+            <div class="fg"><label>Phone *</label><input type="tel" id="bk-phone" placeholder="+91 98xxx xxxxx"></div>
+          </div>
+          <div class="fg"><label>Email Address</label><input type="email" id="bk-email" placeholder="you@company.com"></div>
+          <div class="form-row">
+            <div class="fg"><label>Business / Company Name</label><input type="text" id="bk-company" placeholder="Your firm name"></div>
+            <div class="fg"><label>Service Needed *</label>
+              <select id="bk-service">
+                <option value="">Select a service</option>
+                <option>Income Tax Filing (ITR)</option>
+                <option>GST Registration / Filing</option>
+                <option>Company / LLP Registration</option>
+                <option>Statutory / Tax Audit</option>
+                <option>Payroll & TDS Management</option>
+                <option>Startup / MSME Advisory</option>
+                <option>General Consultation</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="fg"><label>Preferred Date *</label><input type="date" id="bk-date"></div>
+            <div class="fg"><label>Preferred Time *</label>
+              <select id="bk-time">
+                <option value="">Select a slot</option>
+                <option>10:00 AM</option><option>11:00 AM</option><option>12:00 PM</option>
+                <option>2:00 PM</option><option>3:00 PM</option><option>4:00 PM</option><option>5:00 PM</option>
+              </select>
+            </div>
+          </div>
+          <div class="fg"><label>Brief Description of Your Requirement</label>
+            <textarea id="bk-msg" placeholder="Tell us about your business, turnover range, specific concern or question..."></textarea>
+          </div>
+          <div class="form-note"><i class="fas fa-info-circle" style="color:var(--gold)"></i> We confirm within 4 business hours via call or WhatsApp.</div>
+          <button class="btn-gold" onclick="submitBK()" style="width:100%;justify-content:center;font-size:0.95rem;padding:15px;border-radius:8px">
+            <i class="fas fa-calendar-check"></i> Confirm Appointment
+          </button>
+        </div>
+        <div class="form-success" id="bk-success">
+          <i class="fas fa-check-circle"></i>
+          <h3>Appointment Received!</h3>
+          <p>Thank you. Our team will call you within 4 hours to confirm your slot. Looking forward to meeting you at our Connaught Place office.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal rd1">
+      <div class="bk-why" style="margin-bottom:2rem">
+        <div class="lbl" style="margin-bottom:1rem">Why Clients Choose Us</div>
+        <div class="bk-why-item">
+          <div class="bk-num">1</div>
+          <div><div class="bk-wi-title">Zero Penalty Track Record</div><div class="bk-wi-desc">In 20 years, not a single client has faced a penalty due to our error — we own our work completely.</div></div>
+        </div>
+        <div class="bk-why-item">
+          <div class="bk-num">2</div>
+          <div><div class="bk-wi-title">Dedicated CA for Every Client</div><div class="bk-wi-desc">You're never handed off to a junior. Your assigned CA handles your account personally, always available on WhatsApp.</div></div>
+        </div>
+        <div class="bk-why-item">
+          <div class="bk-num">3</div>
+          <div><div class="bk-wi-title">Proactive, Not Reactive</div><div class="bk-wi-desc">We alert you about deadlines 2 weeks in advance, suggest tax-saving moves in October — not March.</div></div>
+        </div>
+        <div class="bk-why-item">
+          <div class="bk-num">4</div>
+          <div><div class="bk-wi-title">Transparent, Fixed Pricing</div><div class="bk-wi-desc">No hidden charges, no surprise bills. You know the fee before work begins — every time.</div></div>
+        </div>
+      </div>
+      <div class="bk-contact">
+        <div class="bk-contact-item">
+          <div class="bk-c-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div><div class="bk-c-label">Office</div><div class="bk-c-val">A-14, Connaught Place, New Delhi – 110001</div></div>
+        </div>
+        <div class="bk-contact-item">
+          <div class="bk-c-icon"><i class="fas fa-phone"></i></div>
+          <div><div class="bk-c-label">Phone</div><div class="bk-c-val">+91 98112 34567</div></div>
+        </div>
+        <div class="bk-contact-item">
+          <div class="bk-c-icon"><i class="fas fa-envelope"></i></div>
+          <div><div class="bk-c-label">Email</div><div class="bk-c-val">hello@mehtaassociates.in</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TEAM ── -->
+<section id="team">
+  <div class="sec-hdr ctr">
+    <div class="lbl">Our Experts</div>
+    <h2 class="sec-title">Meet Your <em>CA Team</em></h2>
+    <p class="sec-sub">Four dedicated chartered accountants, each a specialist — collectively covering every financial need of your business.</p>
+  </div>
+  <div class="team-grid">
+    <div class="team-card reveal">
+      <div class="team-img"><div class="team-initials">RK</div></div>
+      <div class="team-body">
+        <div class="team-name">CA Rajiv Mehta</div>
+        <div class="team-role">Founding Partner</div>
+        <p class="team-desc">20+ years specialising in corporate taxation, mergers & acquisitions, and cross-border transactions. IIM Ahmedabad alumni.</p>
+        <div class="team-creds"><span class="cred">FCA</span><span class="cred">DISA</span><span class="cred">M&A Specialist</span></div>
+      </div>
+    </div>
+    <div class="team-card reveal rd1">
+      <div class="team-img"><div class="team-initials">PS</div></div>
+      <div class="team-body">
+        <div class="team-name">CA Priya Saxena</div>
+        <div class="team-role">GST & Indirect Tax</div>
+        <p class="team-desc">Former CBIC officer with 12 years in indirect taxation, GST advisory, and litigation support. Expert in manufacturing sector compliance.</p>
+        <div class="team-creds"><span class="cred">ACA</span><span class="cred">GST Expert</span><span class="cred">Ex-CBIC</span></div>
+      </div>
+    </div>
+    <div class="team-card reveal rd2">
+      <div class="team-img"><div class="team-initials">AV</div></div>
+      <div class="team-body">
+        <div class="team-name">CA Anil Verma</div>
+        <div class="team-role">Audit & Assurance</div>
+        <p class="team-desc">15 years conducting statutory and internal audits for listed companies and PSUs. Certified IFRS practitioner, Big-4 background.</p>
+        <div class="team-creds"><span class="cred">FCA</span><span class="cred">IFRS Certified</span><span class="cred">CISA</span></div>
+      </div>
+    </div>
+    <div class="team-card reveal rd3">
+      <div class="team-img"><div class="team-initials">NK</div></div>
+      <div class="team-body">
+        <div class="team-name">CA Neha Kapoor</div>
+        <div class="team-role">Startup & MSME Advisory</div>
+        <p class="team-desc">Specialist in startup ecosystem — funding compliance, ESOP taxation, Startup India filings, and investor-ready financial modelling.</p>
+        <div class="team-creds"><span class="cred">ACA</span><span class="cred">CFA Level II</span><span class="cred">Startup Advisor</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ── -->
+<section id="testimonials">
+  <div class="sec-hdr ctr">
+    <div class="lbl">Client Reviews</div>
+    <h2 class="sec-title">Trusted by <em>1,400+ Clients</em></h2>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card reveal">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-q">"Mehta & Associates saved us ₹8 lakh in taxes through proper structuring that our previous CA had completely missed. In 6 years, they've never missed a single deadline."</p>
+      <div class="testi-author">
+        <div class="testi-av">SK</div>
+        <div><div class="testi-name">Sunil Khanna</div><div class="testi-type">Director, Khanna Steel Pvt Ltd</div></div>
+      </div>
+    </div>
+    <div class="testi-card reveal rd1">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-q">"As a startup founder, I needed a CA who understood equity, ESOPs, and investor compliance. Neha from their team is exceptional — she speaks founder language."</p>
+      <div class="testi-author">
+        <div class="testi-av">RT</div>
+        <div><div class="testi-name">Riya Tandon</div><div class="testi-type">Co-founder, FinStack Technologies</div></div>
+      </div>
+    </div>
+    <div class="testi-card reveal rd2">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-q">"Their client portal is a game changer. I can upload documents from my phone, track my ITR status, and download everything — no more WhatsApp chaos with documents."</p>
+      <div class="testi-author">
+        <div class="testi-av">AM</div>
+        <div><div class="testi-name">Aditi Malhotra</div><div class="testi-type">Independent Consultant, Delhi</div></div>
+      </div>
+    </div>
+    <div class="testi-card reveal rd3">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-q">"We faced a GST notice that could have cost us ₹22 lakh. Priya handled the entire response and the demand was dropped to zero. I cannot recommend them enough."</p>
+      <div class="testi-author">
+        <div class="testi-av">VG</div>
+        <div><div class="testi-name">Vivek Gupta</div><div class="testi-type">Proprietor, Gupta Traders</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section id="faq">
+  <div class="sec-hdr ctr">
+    <div class="lbl">Common Questions</div>
+    <h2 class="sec-title">Everything You <em>Need to Know</em></h2>
+  </div>
+  <div class="faq-wrap reveal">
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What documents do I need for ITR filing? <i class="fas fa-plus faq-ico"></i></div><div class="faq-a">For salaried individuals: Form 16, Form 26AS, AIS, bank statements, investment proofs (80C/D), and home loan certificate if applicable. For business owners, additional P&L statements, GST returns, and balance sheet are needed. We send you a complete customised checklist after the first call.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What is your fee structure for ITR filing? <i class="fas fa-plus faq-ico"></i></div><div class="faq-a">Our fees are transparent and fixed. Salaried individuals start from ₹1,500. Business owners start from ₹4,000 depending on complexity. Corporate filings start from ₹15,000. You receive a written quote before any work begins — no surprises.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How does the Client Portal work? <i class="fas fa-plus faq-ico"></i></div><div class="faq-a">Once you become a client, we create a secure portal account for you. You upload documents, we process them, update status in real-time, and you can download all completed returns, certificates, and reports. All communication history is stored there too.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Can you help if I've received a tax notice? <i class="fas fa-plus faq-ico"></i></div><div class="faq-a">Absolutely. We handle income tax notices (143(1), 148, 148A, 263), GST show-cause notices, and departmental audits. Share the notice with us immediately — early response always improves outcomes significantly.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Do you serve clients outside Delhi? <i class="fas fa-plus faq-ico"></i></div><div class="faq-a">Yes. While our office is in Connaught Place, New Delhi, we serve clients pan-India remotely. All work is done digitally through our client portal — clients in Mumbai, Bangalore, Hyderabad, and overseas NRIs are actively served by us.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How quickly can you register my company? <i class="fas fa-plus faq-ico"></i></div><div class="faq-a">A Private Limited Company can typically be incorporated in 7–12 working days, subject to MCA processing time. LLP takes 5–8 days. We handle DSC, DIN, name approval, MOA/AOA drafting, and all MCA filings — you just need to sign digitally.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What's included in the free first consultation? <i class="fas fa-plus faq-ico"></i></div><div class="faq-a">The first consultation is a 30-minute call or in-person meeting where we understand your situation, identify key issues, and recommend an approach. We provide an overview of what services you need and a written fee proposal. No commitment required from you.</div></div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section id="contact">
+  <div class="sec-hdr">
+    <div class="lbl">Visit Us</div>
+    <h2 class="sec-title">Find <em>Our Office</em></h2>
+    <p class="sec-sub">In the heart of New Delhi's business district — easy metro access from Rajiv Chowk station.</p>
+  </div>
+  <div class="contact-grid">
+    <div class="reveal">
+      <div class="contact-info-item">
+        <div class="ci-ico"><i class="fas fa-map-marker-alt"></i></div>
+        <div><div class="ci-lbl">Office Address</div><div class="ci-val">A-14, 3rd Floor, Connaught Place<br>New Delhi – 110001</div></div>
+      </div>
+      <div class="contact-info-item">
+        <div class="ci-ico"><i class="fas fa-phone-alt"></i></div>
+        <div><div class="ci-lbl">Phone</div><div class="ci-val">+91 98112 34567</div></div>
+      </div>
+      <div class="contact-info-item">
+        <div class="ci-ico"><i class="fas fa-envelope"></i></div>
+        <div><div class="ci-lbl">Email</div><div class="ci-val">hello@mehtaassociates.in</div></div>
+      </div>
+      <div class="contact-info-item">
+        <div class="ci-ico"><i class="fab fa-whatsapp"></i></div>
+        <div><div class="ci-lbl">WhatsApp</div><div class="ci-val">+91 98112 34567</div></div>
+      </div>
+      <a href="https://wa.me/919811234567" class="wa-btn" target="_blank"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
+      <div style="margin-top:2rem">
+        <div class="lbl" style="margin-bottom:0.75rem">Office Hours</div>
+        <table class="hours-table">
+          <tr><td>Monday – Friday</td><td>9:30 AM – 7:00 PM</td></tr>
+          <tr><td>Saturday</td><td>10:00 AM – 5:00 PM</td></tr>
+          <tr><td>Sunday</td><td>By Appointment Only</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="map-placeholder reveal rd1">
+      <i class="fas fa-map-marked-alt"></i>
+      <p style="font-weight:500;color:rgba(255,255,255,0.5)">A-14, Connaught Place, New Delhi</p>
+      <p>Embed your Google Maps iframe here</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">
+        <div class="footer-logo-icon">M&A</div>
+        <span class="footer-logo-text">Mehta &amp; Associates</span>
+      </div>
+      <p class="footer-tagline">Chartered Accountants of India. 20 years of precision, integrity, and proactive financial guidance.</p>
+      <a href="tel:+919811234567" class="footer-emergency"><i class="fas fa-phone-alt"></i> Urgent? Call +91 98112 34567</a>
+    </div>
+    <div>
+      <div class="fc-title">Services</div>
+      <ul class="footer-links">
+        <li><a href="#services">Income Tax Filing</a></li>
+        <li><a href="#services">GST Registration & Filing</a></li>
+        <li><a href="#services">Company Registration</a></li>
+        <li><a href="#services">Audit & Assurance</a></li>
+        <li><a href="#services">Payroll & TDS</a></li>
+        <li><a href="#services">Startup Advisory</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="fc-title">Quick Links</div>
+      <ul class="footer-links">
+        <li><a href="#deadlines">Tax Calendar</a></li>
+        <li><a href="#portal">Client Portal</a></li>
+        <li><a href="#team">Our Team</a></li>
+        <li><a href="#testimonials">Client Reviews</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#booking">Book Consultation</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="fc-title">Follow Us</div>
+      <div class="social-row">
+        <a href="#" class="soc"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" class="soc"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="soc"><i class="fab fa-youtube"></i></a>
+        <a href="#" class="soc"><i class="fab fa-whatsapp"></i></a>
+      </div>
+      <div style="margin-top:1.5rem">
+        <div class="fc-title">ICAI Registration</div>
+        <p style="font-size:0.82rem;color:rgba(255,255,255,0.3);line-height:1.65">Firm Reg. No.: 005678N<br>ICAI Membership No.: 123456<br>UDIN: Auto-generated per report</p>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2025 Mehta & Associates, Chartered Accountants. All rights reserved.</div>
+    <div><a href="#">Privacy Policy</a> &nbsp;·&nbsp; <a href="#">Terms of Engagement</a></div>
+  </div>
+</footer>
+
+<script>
+// Navbar
+const nav = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('light', window.scrollY > window.innerHeight * 0.85);
+  nav.classList.toggle('scrolled', window.scrollY > 20);
+});
+
+// Reveal on scroll
+const revEls = document.querySelectorAll('.reveal');
+const ro = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); } });
+}, { threshold: 0.1 });
+revEls.forEach(el => ro.observe(el));
+
+// FAQ
+function toggleFaq(el) {
+  const item = el.parentElement;
+  const open = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if(!open) item.classList.add('open');
+}
+
+// Booking form
+function submitBK() {
+  const name = document.getElementById('bk-name').value.trim();
+  const phone = document.getElementById('bk-phone').value.trim();
+  const service = document.getElementById('bk-service').value;
+  const date = document.getElementById('bk-date').value;
+  const time = document.getElementById('bk-time').value;
+  if(!name || !phone || !service || !date || !time) {
+    alert('Please fill in all required fields (marked with *)');
+    return;
+  }
+  document.getElementById('bk-form-body').style.display = 'none';
+  document.getElementById('bk-success').style.display = 'block';
+}
+
+// Set min date
+const di = document.getElementById('bk-date');
+if(di) di.min = new Date().toISOString().split('T')[0];
+
+// Mobile nav
+function toggleNav() {
+  const links = document.querySelector('.nav-links');
+  const isOpen = links.style.display === 'flex';
+  links.style.cssText = isOpen ? '' : 'display:flex;flex-direction:column;position:fixed;top:72px;left:0;right:0;background:rgba(10,22,40,0.98);padding:1.5rem 6%;gap:1.25rem;z-index:999;border-bottom:1px solid rgba(201,168,76,0.15);';
+}
+</script>
+</body>
+</html>
